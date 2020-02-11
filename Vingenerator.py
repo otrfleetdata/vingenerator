@@ -7,6 +7,8 @@ Created on Sat Feb  8 08:27:40 2020
 """
 
 import vin
+import pandas as pd
 from vin_decoder import VinDecoder
-vd = VinDecoder()
-print(vd.decode(vin.getRandomVin()))
+#vd = VinDecoder()
+#vd.decode(vin.getRandomVin())
+x = vin.getNRandomVin(1000)

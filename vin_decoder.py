@@ -38,9 +38,11 @@ class VinDecoder():
                     cyl = i['Value']
                 if i['Variable'] == 'Plant Country':
                     ctry = i['Value']
-            print ("vin: %s %s %s %s, Disp: %s Cyl: %s Country:%s" , (vin, year, make, model, disp, cyl,ctry))
+                if i['Variable'] == 'Vehicle Type':
+                    vhcl = i['Value']
+            print ("vin: %s %s %s %s, Disp: %s Cyl: %s Country:%s Vehicle type %s" , (vin, year, make, model, disp, cyl,ctry,vhcl))
             return {'vin': vin, 'year': year, 'make': make,
-                    'model': model, 'disp': disp, 'cyl': cyl,'country':ctry}
+                    'model': model, 'disp': disp, 'cyl': cyl,'country':ctry,'vehicle type':vhcl}
 
 
 if __name__ == "__main__":

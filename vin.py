@@ -25,7 +25,10 @@ def getRandomVin():
     checkChar = getCheckSumChar(v)
     v = "%s%s%s" % (v[0:8], checkChar, v[9:])
     return v
-
+def getNRandomVin(n):
+    
+    vin = [getRandomVin() for i in range(0,n)]
+    return vin
 def getCheckSumChar(vin):
     # generate the check sum
     checkSumTotal = 0
