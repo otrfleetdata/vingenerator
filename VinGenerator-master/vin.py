@@ -12,7 +12,7 @@ class VinYear:
         self.Year = year
     
     def __repr__(self):
-        return "First8: %s - Year: %s".format(self.First8, self.Year)
+        return "First8: %s - Year: %s" % (self.First8, self.Year)
 
 def getRandomVin():
     vinYear = getRandomVinStart()
@@ -25,15 +25,13 @@ def getRandomVin():
     checkChar = getCheckSumChar(v)
     v = "%s%s%s" % (v[0:8], checkChar, v[9:])
     return v
-def getNRandomVin(n):
-    vin = [getRandomVin() for i in range(0,n)]
-    return vin
+
 def getCheckSumChar(vin):
     # generate the check sum
     checkSumTotal = 0
 
     if (len(vin) < 17):
-        print( "Invalid Length: %s" ,len(vin))
+        print "Invalid Length: %s" % len(vin)
         return -1
 
     for i in range(len(vin)):
@@ -41,11 +39,11 @@ def getCheckSumChar(vin):
             checkSumTotal += int(vinDigitValues[vin[i]]) * vinDigitPositionMultiplier[i];
         else:
             #Characters not in the VinDigitValues list are not valid VIN characters - return false (invalid)
-            print ("Illegal Character: %s" , vin[i])
+            print "Illegal Character: %s" % vin[i]
             return -1;
 
     remain = checkSumTotal % 11
-    char = 'remain'
+    char = `remain`
     if remain == 10:
         char = 'X'
 
@@ -53,7 +51,7 @@ def getCheckSumChar(vin):
                 
 def getRandomVinChar():
     i = int(random.random() * len(vinDigitValues))
-    return list(vinDigitValues.keys())[i]
+    return vinDigitValues.keys()[i]
 
 def getRandomVinStart():
     #137DA903       T
